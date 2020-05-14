@@ -22,9 +22,6 @@ Plug 'junegunn/seoul256.vim'
 " Git Plugin - :Git/:G
 Plug 'tpope/vim-fugitive'
 
-" Ansible Syntax
-Plug 'pearofducks/ansible-vim', { 'do': './UltiSnips/generate.sh' }
-
 call plug#end()
 
 "########### Plugins End ###########"
@@ -80,4 +77,8 @@ autocmd FileType yaml setlocal cursorcolumn
 
 " Syntax Plugin - couldnt figure out how it works
 "Plug 'scrooloose/syntastic'
+
+" Ansible Syntax - failed on every none-ansible host, syntax wasn't that great
+"Plug 'pearofducks/ansible-vim', { 'do': './UltiSnips/generate.sh' }
+
 "########### Old Plugins End ###########"
