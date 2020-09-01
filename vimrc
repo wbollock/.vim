@@ -1,8 +1,7 @@
-"########### VIMRC ###########"
+"##### VIMRC #####"
 
-"Symlink to root
-" sudo ln -s ~/.vim/ /root/
-
+# Bug in windows terminal that starts in replace mode fix
+nnoremap R <Esc>
 
 "########### Plugins ###########"
 
