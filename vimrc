@@ -1,6 +1,6 @@
 "##### VIMRC #####"
 
-# Bug in windows terminal that starts in replace mode fix
+"# Bug in windows terminal that starts in replace mode fix"
 nnoremap R <Esc>
 
 "########### Plugins ###########"
