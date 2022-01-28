@@ -12,14 +12,28 @@ nnoremap R <Esc>
          autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
          endif
 
+
+
 " enable plugins (:PlugInstall)
 call plug#begin('~/.vim/plugged')
 
 " Theme
-Plug 'junegunn/seoul256.vim'
+" Plug 'junegunn/seoul256.vim'
+Plug 'embark-theme/vim', { 'as': 'embark', 'branch': 'main' }
+"Plug 'embark-theme/vim'
+set termguicolors
 
 " Git Plugin - :Git/:G
 Plug 'tpope/vim-fugitive'
+
+" Vimwiki
+Plug 'vimwiki/vimwiki'
+
+" fzf
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+" Notational-fzf-vim (note searching)
+Plug 'https://github.com/alok/notational-fzf-vim'
 
 call plug#end()
 
@@ -40,6 +54,18 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" #### vimwiki #####
+
+" set filetype=markdown in directories other than vimwiki
+" https://github.com/vimwiki/vimwiki/issues/769
+let g:vimwiki_global_ext = 0
+
+" enable markdown
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown'}] 
+
+" custom folding
+let g:vimwiki_folding = 'custom'
+
 "########### Plugin Configuration End ###########"
 
 
@@ -50,20 +76,24 @@ let g:syntastic_check_on_wq = 0
 set nocompatible
 
 " enable syntax and plugins
-syntax enable
-"filetype plugin on
+syntax on
+filetype plugin on
 
-" for helping with YAML, idk if i like it yet
+" yaml editor
 autocmd FileType yaml setlocal cursorcolumn
 
 " allows copy and pasting formatting, and line numbers
 :set paste
 :set nu
 
+" move swp files to ~/.vim/tmp/
+" https://stackoverflow.com/questions/11255877/vim-swp-files-interfere-with-repository-vimdiff
+set directory=~/.vim/tmp//,/tmp
+
+" notational-fzf search paths
+let g:nv_search_paths = ['~/vimwiki', '~/Desktop/notes' ]
+
 "########### General Configuration End ###########"
-
-
-
 
 "########### Old Plugins ###########"
 " disccarded plugins that might be cool
