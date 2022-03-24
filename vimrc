@@ -1,5 +1,7 @@
 "##### VIMRC #####"
 
+"test"
+
 "# Bug in windows terminal that starts in replace mode fix"
 nnoremap R <Esc>
 
@@ -92,6 +94,10 @@ set directory=~/.vim/tmp//,/tmp
 
 " notational-fzf search paths
 let g:nv_search_paths = ['~/vimwiki', '~/Desktop/notes' ]
+
+" set backspace for whatever reason
+" https://stackoverflow.com/questions/11560201/backspace-key-not-working-in-vim-vi
+set backspace=indent,eol,start
 
 "########### General Configuration End ###########"
 
