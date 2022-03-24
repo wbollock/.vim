@@ -1,7 +1,5 @@
 "##### VIMRC #####"
 
-"test"
-
 "# Bug in windows terminal that starts in replace mode fix"
 nnoremap R <Esc>
 
@@ -93,7 +91,7 @@ autocmd FileType yaml setlocal cursorcolumn
 set directory=~/.vim/tmp//,/tmp
 
 " notational-fzf search paths
-let g:nv_search_paths = ['~/vimwiki', '~/Desktop/notes' ]
+let g:nv_search_paths = ['~/vimwiki' ]
 
 " set backspace for whatever reason
 " https://stackoverflow.com/questions/11560201/backspace-key-not-working-in-vim-vi
@@ -101,19 +99,3 @@ set backspace=indent,eol,start
 
 "########### General Configuration End ###########"
 
-"########### Old Plugins ###########"
-" disccarded plugins that might be cool
-
-" Puts text in the center
-"Plug 'junegunn/goyo.vim'
-
-" Highlights text as it goes
-"Plug 'junegunn/limelight.vim'
-
-" Syntax Plugin - couldnt figure out how it works
-"Plug 'scrooloose/syntastic'
-
-" Ansible Syntax - failed on every none-ansible host, syntax wasn't that great
-"Plug 'pearofducks/ansible-vim', { 'do': './UltiSnips/generate.sh' }
-
-"########### Old Plugins End ###########"
