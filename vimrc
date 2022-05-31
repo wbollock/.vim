@@ -35,6 +35,9 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Notational-fzf-vim (note searching)
 Plug 'https://github.com/alok/notational-fzf-vim'
 
+" Git syntax
+Plug 'tpope/vim-git'
+
 call plug#end()
 
 "########### Plugins End ###########"
