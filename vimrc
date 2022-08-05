@@ -19,9 +19,9 @@ call plug#begin('~/.vim/plugged')
 
 " Theme
 " Plug 'junegunn/seoul256.vim'
-Plug 'embark-theme/vim', { 'as': 'embark', 'branch': 'main' }
+"Plug 'embark-theme/vim', { 'as': 'embark', 'branch': 'main' }
 "Plug 'embark-theme/vim'
-set termguicolors
+"set termguicolors
 
 " Git Plugin - :Git/:G
 Plug 'tpope/vim-fugitive'
@@ -45,17 +45,18 @@ call plug#end()
 "########### Plugin Configuration ###########"
 
 " seoul256 settings
-set background=dark
+"set background=dark
+set background=light
 
 " syntastic settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
 
 " #### vimwiki #####
 
@@ -76,18 +77,21 @@ let g:vimwiki_folding = 'custom'
 "########### General Configuration ###########"
 
 " enter the current millenium, technically useless
-set nocompatible
+"set nocompatible
 
 " enable syntax and plugins
 syntax on
-filetype plugin on
+filetype indent plugin on
+
+au FileType gitcommit setlocal tw=72
+set fo+=t
 
 " yaml editor
 autocmd FileType yaml setlocal cursorcolumn
 
 " allows copy and pasting formatting, and line numbers
-:set paste
-:set nu
+":set paste
+":set nu
 
 " move swp files to ~/.vim/tmp/
 " https://stackoverflow.com/questions/11255877/vim-swp-files-interfere-with-repository-vimdiff
@@ -99,6 +103,16 @@ let g:nv_search_paths = ['~/vimwiki' ]
 " set backspace for whatever reason
 " https://stackoverflow.com/questions/11560201/backspace-key-not-working-in-vim-vi
 set backspace=indent,eol,start
+
+augroup gitsetup
+        autocmd!
+
+        " Only set these commands up for git commits
+        autocmd FileType gitcommit
+                \  hi def link gitcommitOverflow Error
+                \| autocmd CursorMoved,CursorMovedI *
+                        \  let &l:textwidth = line('.') == 1 ? 50 : 72
+augroup end
 
 "########### General Configuration End ###########"
 
