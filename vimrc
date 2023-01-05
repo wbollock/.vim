@@ -113,6 +113,9 @@ augroup gitsetup
                 \| autocmd CursorMoved,CursorMovedI *
                         \  let &l:textwidth = line('.') == 1 ? 50 : 72
 augroup end
-
+" set cursor cause of FZF bug - https://github.com/junegunn/fzf.vim/issues/1125
+let &t_SI .= "\<Esc>[5 q"
+let &t_SR .= "\<Esc>[5 q"
+let &t_EI .= "\<Esc>[5 q"
 "########### General Configuration End ###########"
 
